@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Recipe Master – Smart Recipe Search App</title>
+
+<meta name="description" content="Recipe Master is a smart recipe app for Android. Search recipes by ingredients, nutrition, cuisine, calories, macros and save your favorite meals.">
+<meta name="keywords" content="recipe app, cooking app, recipe search, ingredient recipe finder, meal ideas, cooking recipes, Android recipe app">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#eef7ea">
+<link rel="canonical" href="https://micmr0.github.io/recipe-master/">
+
+<meta property="og:title" content="Recipe Master – Smart Recipe Search App">
+<meta property="og:description" content="Find recipes by ingredients, filters, calories, macros and save your favorite meals.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="promo/1.png">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Recipe Master",
+  "applicationCategory": "FoodApplication",
+  "operatingSystem": "Android",
+  "description": "Smart recipe app for searching recipes by ingredients, nutrition, cuisine and cooking time.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<style>
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:linear-gradient(180deg,#f6fbf2,#eaf4e4);
+  color:#172317;
+}
+
+.hero{
+  text-align:center;
+  padding:90px 20px 60px;
+  overflow:hidden;
+}
+
+.hero-content{
+  max-width:1400px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:3.4rem;
+  margin-bottom:10px;
+  color:#064f24;
+}
+
+.hero p{
+  font-size:1.15rem;
+  opacity:0.75;
+}
+
+.promo-row{
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  margin:60px auto;
+  padding:10px;
+  flex-wrap:wrap;
+}
+
+.promo-row img{
+  width:300px;
+  max-width:90vw;
+  border-radius:34px;
+  box-shadow:0 30px 90px rgba(31,74,36,0.28);
+  transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.promo-row img:hover{
+  transform:translateY(-8px);
+  box-shadow:0 45px 120px rgba(47,120,54,0.35);
+}
+
+.store-btn{
+  display:inline-block;
+  margin:14px 0 20px;
+}
+
+.store-btn img{
+  width:220px;
+  transition:0.25s;
+}
+
+.store-btn img:hover{
+  transform:scale(1.05);
+}
+
+.feature-section{
+  max-width:1400px;
+  margin:100px auto;
+  padding:0 24px;
+}
+
+.feature-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:70px;
+  margin:120px 0;
+}
+.feature-section{
+  max-width:1100px;
+  margin:100px auto;
+  padding:0 24px;
+}
+
+.feature-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:80px;
+  margin:120px 0;
+}
+
+.feature-row.reverse{
+  flex-direction:row-reverse;
+}
+
+.feature-text{
+  flex:1;
+}
+
+.feature-media{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.feature-media img{
+  width:100%;
+  max-width:360px;
+  border-radius:32px;
+  box-shadow:0 30px 90px rgba(31,74,36,0.25);
+}
+
+.feature-tag{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#d9efd2;
+  color:#1f6b34;
+  font-size:0.9rem;
+  font-weight:700;
+}
+
+.feature-text h2{
+  font-size:3rem;
+  line-height:1.1;
+  margin-bottom:18px;
+  color:#064f24;
+}
+
+.feature-lead{
+  font-size:1.25rem;
+  opacity:0.9;
+  margin-bottom:20px;
+}
+
+.feature-text p{
+  opacity:0.8;
+  line-height:1.8;
+}
+
+.feature-text ul{
+  list-style:none;
+  padding:0;
+  margin-top:28px;
+}
+
+.feature-text li{
+  margin:14px 0;
+  font-size:1.05rem;
+  opacity:0.92;
+}
+
+.info{
+  max-width:900px;
+  margin:60px auto;
+  padding:32px;
+  background:rgba(255,255,255,0.65);
+  border:1px solid rgba(31,74,36,0.12);
+  border-radius:24px;
+  line-height:1.7;
+  box-shadow:0 20px 60px rgba(31,74,36,0.12);
+}
+
+.info h2{
+  color:#064f24;
+}
+
+.info .lead{
+  font-size:1.05rem;
+  opacity:0.9;
+}
+
+.info ul{
+  list-style:none;
+  padding:0;
+}
+
+.info li{
+  margin:10px 0;
+}
+
+.faq{
+  max-width:900px;
+  margin:60px auto;
+  padding:0 20px;
+}
+
+.faq h2{
+  color:#064f24;
+}
+
+details{
+  background:rgba(255,255,255,0.7);
+  margin:10px 0;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid rgba(31,74,36,0.12);
+  transition:0.25s;
+}
+
+details:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(31,74,36,0.12);
+}
+
+summary{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+details p{
+  margin-top:10px;
+  opacity:0.85;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:0.7;
+  border-top:1px solid rgba(31,74,36,0.12);
+}
+
+@media(max-width:1000px){
+  .feature-row,
+  .feature-row.reverse{
+    flex-direction:column;
+  }
+
+  .feature-text h2{
+    font-size:2.2rem;
+  }
+
+  .feature-row{
+    margin:80px 0;
+  }
+}
+
+@media(max-width:800px){
+  .hero h1{
+    font-size:2.5rem;
+  }
+
+  .promo-row img{
+    width:85vw;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+
+    <h1>Recipe Master</h1>
+
+    <p>
+      Discover recipes in seconds. Search by ingredients,
+      nutrition, cuisine or cooking time.
+    </p>
+
+    <div class="promo-row">
+      <img src="promo/1.png" alt="Find recipes">
+      <img src="promo/2.png" alt="Smart recipe filters">
+      <img src="promo/3.png" alt="Search recipes by ingredients">
+    </div>
+
+    <div class="promo-row">
+      <img src="promo/4.png" alt="Random recipe inspiration">
+      <img src="promo/5.png" alt="Recipe Book favorites">
+    </div>
+
+    <a class="store-btn"
+       href="YOUR_GOOGLE_PLAY_URL"
+       target="_blank"
+       rel="noopener noreferrer">
+      <img src="get_it.png" alt="Get it on Google Play">
+    </a>
+
+  </div>
+</section>
+
+<section class="feature-section">
+
+  <div class="feature-row">
+    <div class="feature-text">
+      <span class="feature-tag">Search</span>
+      <h2>Find any recipe in seconds.</h2>
+      <p class="feature-lead">Search by keyword, cuisine, calories or macros.</p>
+      <p>
+        Instantly discover recipes that match your taste,
+        diet and cooking goals. Whether you're looking for
+        pizza, pasta or a high-protein dinner, Recipe Master
+        helps you find it fast.
+      </p>
+      <ul>
+        <li>✔ Search by recipe name</li>
+        <li>✔ Filter by cuisine</li>
+        <li>✔ Browse by calories and macros</li>
+        <li>✔ Discover hundreds of meals instantly</li>
+      </ul>
+    </div>
+
+    <div class="feature-media">
+      <img src="screens/1.png" alt="Recipe search">
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-media">
+      <img src="screens/2.png" alt="Smart filters">
+    </div>
+
+    <div class="feature-text">
+      <span class="feature-tag">Smart Filters</span>
+      <h2>Powerful search with smart filters.</h2>
+      <p class="feature-lead">Find meals that match your lifestyle.</p>
+      <p>
+        Use advanced filters to narrow results by calories,
+        protein, carbs, cooking time, cost, season,
+        difficulty and more.
+      </p>
+      <ul>
+        <li>✔ Nutrition-based filtering</li>
+        <li>✔ Cooking time filters</li>
+        <li>✔ Difficulty and cost options</li>
+        <li>✔ Kid-friendly and spice-level filters</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-text">
+      <span class="feature-tag">Ingredients</span>
+      <h2>Cook with what you already have.</h2>
+      <p class="feature-lead">Reduce waste and discover new ideas.</p>
+      <p>
+        Simply add ingredients from your kitchen and
+        Recipe Master will suggest matching recipes
+        you can prepare right away.
+      </p>
+      <ul>
+        <li>✔ Search by available ingredients</li>
+        <li>✔ Discover hidden recipe ideas</li>
+        <li>✔ Reduce food waste</li>
+        <li>✔ Perfect for everyday cooking</li>
+      </ul>
+    </div>
+
+    <div class="feature-media">
+      <img src="screens/3.png" alt="Ingredient search">
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-media">
+      <img src="screens/4.png" alt="Random recipes">
+    </div>
+
+    <div class="feature-text">
+      <span class="feature-tag">Inspiration</span>
+      <h2>Get inspired with random recipes.</h2>
+      <p class="feature-lead">Never run out of meal ideas.</p>
+      <p>
+        Can't decide what to cook? Let Recipe Master
+        surprise you with random recipes and discover
+        new meals from around the world.
+      </p>
+      <ul>
+        <li>✔ One-tap inspiration</li>
+        <li>✔ Discover new cuisines</li>
+        <li>✔ Explore unfamiliar dishes</li>
+        <li>✔ Break your cooking routine</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-text">
+      <span class="feature-tag">Recipe Book</span>
+      <h2>Save your favorite recipes.</h2>
+      <p class="feature-lead">Build your personal cookbook.</p>
+      <p>
+        Keep all your favorite recipes in one place and
+        access them anytime. Your Recipe Book helps
+        you quickly return to meals you love.
+      </p>
+      <ul>
+        <li>✔ Save favorite recipes</li>
+        <li>✔ Build your own cookbook</li>
+        <li>✔ Quick access anytime</li>
+        <li>✔ Never lose a recipe again</li>
+      </ul>
+    </div>
+
+    <div class="feature-media">
+      <img src="screens/5.png" alt="Recipe Book">
+    </div>
+  </div>
+
+</section>
+
+<section class="info">
+  <h2>Why Recipe Master?</h2>
+
+  <p class="lead">
+    Recipe Master helps you discover new meals,
+    cook with ingredients you already have and
+    organize your favorite recipes in one place.
+  </p>
+
+  <ul>
+    <li>✔ Search by recipe name</li>
+    <li>✔ Search by ingredients</li>
+    <li>✔ Advanced nutrition filters</li>
+    <li>✔ Random recipe inspiration</li>
+    <li>✔ Personal Recipe Book</li>
+    <li>✔ Hundreds of recipes</li>
+    <li>✔ Completely free</li>
+  </ul>
+</section>
+
+<section class="faq">
+  <h2>FAQ</h2>
+
+  <details>
+    <summary>What can I search for?</summary>
+    <p>
+      Search by recipe name, cuisine, calories,
+      protein, carbs, cooking time and more.
+    </p>
+  </details>
+
+  <details>
+    <summary>Can I search using ingredients?</summary>
+    <p>
+      Yes. Add ingredients you already have and
+      Recipe Master will find matching meals.
+    </p>
+  </details>
+
+  <details>
+    <summary>Can I save favorite recipes?</summary>
+    <p>
+      Yes. Use Recipe Book to store and organize
+      your favorite meals.
+    </p>
+  </details>
+
+  <details>
+    <summary>Is Recipe Master free?</summary>
+    <p>
+      Yes. All core recipe discovery features are
+      available for free.
+    </p>
+  </details>
+</section>
+
+<footer>
+  <p>© 2026 Recipe Master • micmr0</p>
+</footer>
+
+</body>
+</html>
